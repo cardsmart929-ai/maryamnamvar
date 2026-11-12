@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>مریم نامور | مشاور و روانشناس کودک (۵ تا ۱۲ سال)</title>
+  <meta name="description" content="مریم نامور - مشاور و روانشناس تخصصی کودکان ۵ تا ۱۲ سال و والدین | شماره نظام روانشناسی: ۷۸۵۸۸ | راهکارهای علمی و کاربردی برای چالش‌های تربیتی" />
+  <meta name="theme-color" content="#FAF6F0" />
+
+  <!-- Google Fonts: Vazirmatn -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Vazirmatn', 'sans-serif'],
+          },
+          colors: {
+            ochre: {
+              50: '#FCF9F4',
+              100: '#F7EFE2',
+              200: '#EDE0C9',
+              300: '#DFC7A2',
+              400: '#D0AC77',
+              500: '#C59341', // Warm Ochre Primary
+              600: '#B07B2B', // Deep Ochre Gold
+              700: '#8E601F',
+              800: '#5C3E16',
+              900: '#2C221E', // Espresso Dark Text
+            },
+            cream: {
+              bg: '#F3ECE1',
+              card: '#FAF6F0',
+              surface: '#FFFFFF',
+              border: '#EAE0D5',
+              muted: '#6E5D53'
+            }
+          },
+          boxShadow: {
+            'card': '0 20px 50px -12px rgba(44, 34, 30, 0.10), 0 0 1px 1px rgba(197, 147, 65, 0.15)',
+            'soft': '0 6px 18px -4px rgba(92, 62, 22, 0.06)',
+            'cta': '0 8px 20px -4px rgba(197, 147, 65, 0.35)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background-color: #EFE7DA;
+      background-image: 
+        radial-gradient(at 10% 10%, rgba(197, 147, 65, 0.12) 0px, transparent 50%),
+        radial-gradient(at 90% 90%, rgba(176, 123, 43, 0.10) 0px, transparent 50%),
+        linear-gradient(180deg, #F6F1E8 0%, #EAE0D0 100%);
+      color: #2C221E;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Strict LTR Isolation for IDs, Numbers, and URLs inside RTL context */
+    .ltr-text {
+      direction: ltr;
+      unicode-bidi: embed;
+      display: inline-block;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    /* Pulsing green dot */
+    @keyframes pulse-ring {
+      0% { transform: scale(0.85); opacity: 0.8; }
+      70% { transform: scale(2.2); opacity: 0; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+    .pulse-dot::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 9999px;
+      background-color: #16A34A;
+      animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    }
+
+    /* Interactive Card Transitions */
+    .interactive-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .interactive-card:hover {
+      border-color: #D0AC77;
+      box-shadow: 0 10px 24px -6px rgba(92, 62, 22, 0.10);
+    }
+    .interactive-card:active {
+      transform: scale(0.99);
+    }
+
+    /* Toast Notification */
+    #toast-notification {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translate(-50%, -150%);
+      opacity: 0;
+    }
+    #toast-notification.show {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+
+    /* Responsive Top Utility Text */
+    .status-text {
+      font-size: clamp(0.68rem, 2.6vw, 0.78rem);
+    }
+
+    /* Responsive Dual CTA Grid (<360px stacks cleanly, >=360px 2 columns) */
+    .dual-cta-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.625rem;
+    }
+    @media (min-width: 350px) {
+      .dual-cta-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+      }
+    }
+  </style>
+</head>
+
+<body class="py-4 px-3 sm:py-8 sm:px-4 flex flex-col items-center justify-start">
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast-notification" class="fixed top-4 left-1/2 z-50 flex items-center gap-2.5 bg-[#2C221E] text-[#FAF6F0] px-4 py-3 rounded-2xl shadow-2xl border border-ochre-400/40 text-xs sm:text-sm font-medium max-w-[92vw] pointer-events-none">
+    <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+      </svg>
+    </span>
+    <span id="toast-message" class="truncate">در کلیپ‌بورد کپی شد</span>
+  </div>
+
+  <!-- MAIN SMART CARD CONTAINER -->
+  <main class="w-full max-w-[450px] bg-cream-card rounded-[28px] shadow-card border border-cream-border overflow-hidden">
+
+    <!-- 1. TOP UTILITY BAR & HEADER BANNER -->
+    <div class="bg-gradient-to-b from-[#E6D5B8] via-[#EFE3CE] to-cream-card pt-3.5 pb-12 px-4 relative">
+      <div class="flex items-center justify-between gap-2">
+        
+        <!-- Right: QR Code Button -->
+        <button type="button" onclick="openQrModal()" aria-label="نمایش بارکد صفحه" class="w-10 h-10 rounded-2xl bg-white/90 backdrop-blur-sm border border-white text-ochre-800 flex items-center justify-center shadow-sm hover:bg-white active:scale-95 transition shrink-0">
+          <svg class="w-5 h-5 text-ochre-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h6v6H3V3zm12 0h6v6h-6V3zM3 15h6v6H3v-6zm13 0h2v2h-2v-2zm0 4h2v2h-2v-2zm4-4h2v2h-2v-2zm-2 2h2v2h-2v-2z"></path>
+          </svg>
+        </button>
+
+        <!-- Center: Live Status Pill -->
+        <div class="flex items-center justify-center gap-2 bg-white/90 backdrop-blur-sm border border-white px-3 py-2 rounded-full shadow-sm min-w-0">
+          <span class="relative w-2 h-2 rounded-full bg-emerald-600 pulse-dot shrink-0"></span>
+          <span class="status-text font-bold text-ochre-900 truncate">آماده پذیرش نوبت و مشاوره</span>
+        </div>
+
+        <!-- Left: Share / Copy Link Button -->
+        <button type="button" onclick="shareCard()" aria-label="اشتراک‌گذاری صفحه" class="w-10 h-10 rounded-2xl bg-white/90 backdrop-blur-sm border border-white text-ochre-800 flex items-center justify-center shadow-sm hover:bg-white active:scale-95 transition shrink-0">
+          <svg class="w-5 h-5 text-ochre-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- 2. HERO & BRANDING SECTION -->
+    <section class="px-4 sm:px-5 pb-6 -mt-10 relative z-10 text-center">
+      
+      <!-- Avatar Frame + Verified Badge -->
+      <div class="relative inline-block">
+        <div class="w-24 h-24 rounded-full p-1 bg-gradient-to-tr from-ochre-600 via-ochre-400 to-ochre-200 shadow-md mx-auto">
+          <div class="w-full h-full rounded-full bg-white flex flex-col items-center justify-center border-2 border-white overflow-hidden">
+            <!-- Minimal Psychology Emblem -->
+            <svg class="w-11 h-11 text-ochre-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </div>
+        </div>
+        <!-- Verified Check Badge -->
+        <span title="هویت تایید شده" class="absolute bottom-0.5 right-0.5 w-7 h-7 rounded-full bg-ochre-500 text-white border-2 border-white flex items-center justify-center shadow-sm">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+          </svg>
+        </span>
+      </div>
+
+      <!-- Main Title & Subtitle -->
+      <h1 class="mt-3 text-xl sm:text-2xl font-black text-ochre-900 tracking-tight">
+        مریم نامور
+      </h1>
+      <p class="mt-1 text-xs sm:text-sm font-bold text-ochre-700">
+        مشاور و روانشناس کودک (۵ تا ۱۲ سال)
+      </p>
+
+      <!-- Official License Pill -->
+      <div class="mt-2.5 inline-flex items-center gap-1.5 bg-ochre-100/90 border border-ochre-300/80 text-ochre-900 px-3.5 py-1 rounded-full text-xs font-extrabold">
+        <svg class="w-3.5 h-3.5 text-ochre-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+        </svg>
+        <span>شماره نظام روانشناسی: ۷۸۵۸۸</span>
+      </div>
+
+      <!-- Result-Oriented Bio -->
+      <p class="mt-3 text-xs sm:text-[13px] text-cream-muted leading-6 max-w-[380px] mx-auto font-medium">
+        اینجا یاد می‌گیریم چطور والد بهتری برای فرزندمون باشیم؛ ارائه راهکارهای علمی و کاربردی برای چالش‌های تربیتی کودکان و والدین.
+      </p>
+
+      <!-- 4 SERVICE PILL BADGES (Uniform 2x2 CSS Grid) -->
+      <div class="mt-4 grid grid-cols-2 gap-2 text-right">
+        <div class="bg-white border border-cream-border rounded-xl p-2.5 flex items-center gap-2 shadow-soft">
+          <span class="w-2 h-2 rounded-full bg-ochre-500 shrink-0"></span>
+          <span class="text-[11px] sm:text-xs font-bold text-ochre-900 leading-tight">مشاوره کودک (۵ تا ۱۲ سال)</span>
+        </div>
+        <div class="bg-white border border-cream-border rounded-xl p-2.5 flex items-center gap-2 shadow-soft">
+          <span class="w-2 h-2 rounded-full bg-ochre-500 shrink-0"></span>
+          <span class="text-[11px] sm:text-xs font-bold text-ochre-900 leading-tight">مشاوره فرزندپروری و والدین</span>
+        </div>
+        <div class="bg-white border border-cream-border rounded-xl p-2.5 flex items-center gap-2 shadow-soft">
+          <span class="w-2 h-2 rounded-full bg-ochre-500 shrink-0"></span>
+          <span class="text-[11px] sm:text-xs font-bold text-ochre-900 leading-tight">تقویت هوش هیجانی (EQ)</span>
+        </div>
+        <div class="bg-white border border-cream-border rounded-xl p-2.5 flex items-center gap-2 shadow-soft">
+          <span class="w-2 h-2 rounded-full bg-ochre-500 shrink-0"></span>
+          <span class="text-[11px] sm:text-xs font-bold text-ochre-900 leading-tight">حل چالش‌های تربیتی</span>
+        </div>
+      </div>
+
+      <!-- 3. PRIMARY DUAL-CTA BAR (Never Overflows on Narrow Screens) -->
+      <div class="mt-4 dual-cta-grid">
+        <!-- Primary CTA: Website Form -->
+        <a href="https://maryamnamvar.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 bg-gradient-to-l from-ochre-600 to-ochre-500 hover:from-ochre-700 hover:to-ochre-600 text-white font-extrabold text-xs sm:text-sm py-3.5 px-3 rounded-2xl shadow-cta active:scale-[0.98] transition whitespace-nowrap">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          <span>ثبت فرم در وب‌سایت</span>
+        </a>
+
+        <!-- Secondary CTA: Save vCard -->
+        <button type="button" onclick="downloadVCard()" class="flex items-center justify-center gap-1.5 bg-[#EFE4D2] hover:bg-[#E6D6BC] text-ochre-900 border border-ochre-300 font-extrabold text-xs sm:text-sm py-3.5 px-3 rounded-2xl shadow-soft active:scale-[0.98] transition whitespace-nowrap">
+          <svg class="w-4 h-4 text-ochre-700 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+          </svg>
+          <span>ذخیره مخاطب</span>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- STEP-BY-STEP CONSULTATION GUIDE (Highlighted Box) -->
+    <section class="px-4 sm:px-5 pb-5" aria-label="راهنمای دریافت مشاوره">
+      <div class="bg-[#F4EBE0] border border-ochre-300/80 rounded-2xl p-4 text-right shadow-soft">
+        <div class="flex items-center gap-2 mb-2.5">
+          <span class="w-6 h-6 rounded-lg bg-ochre-500 text-white flex items-center justify-center shrink-0">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </span>
+          <h2 class="text-xs sm:text-sm font-extrabold text-ochre-900">
+            راهنمای دریافت نوبت مشاوره
+          </h2>
+        </div>
+
+        <div class="space-y-2.5 text-xs text-ochre-900/90 leading-6">
+          <div class="flex items-start gap-2">
+            <span class="w-5 h-5 rounded-full bg-ochre-600 text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">۱</span>
+            <p class="flex-1 min-w-0">
+              ابتدا وارد وب‌سایت رسمی به آدرس <a href="https://maryamnamvar.com/" target="_blank" rel="noopener noreferrer" class="ltr-text font-bold text-ochre-700 underline underline-offset-2">maryamnamvar.com</a> شوید و <strong>فرم ثبت درخواست مشاوره</strong> داخل سایت را تکمیل کنید.
+            </p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="w-5 h-5 rounded-full bg-ochre-300 text-ochre-900 text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">۲</span>
+            <p class="flex-1 min-w-0">
+              پس از ثبت فرم در سایت (یا ارسال پیام به پشتیبانی در <strong>بله، تلگرام یا واتساپ</strong>)، تیم پشتیبانی در سریع‌ترین زمان برای هماهنگی ساعت جلسه با شما تماس می‌گیرند.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="px-5">
+      <div class="h-px w-full bg-cream-border"></div>
+    </div>
+
+    <!-- 4. MULTI-CHANNEL COMMUNICATION CARDS (Clean Two-Tier & Single-Row Architecture) -->
+    <section class="p-4 sm:p-5 space-y-3.5" aria-label="راه‌های ارتباطی">
+      
+      <div class="flex items-center justify-between px-1">
+        <h2 class="text-xs sm:text-sm font-extrabold text-ochre-900 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-ochre-500"></span>
+          راه‌های ارتباطی و نوبت‌دهی
+        </h2>
+        <span class="text-[11px] text-cream-muted font-medium">انتخاب کانال ارتباطی</span>
+      </div>
+
+      <!-- MAJOR CARD 1: OFFICIAL WEBSITE (Two-Tier Layout - Zero Button Crowding) -->
+      <div class="interactive-card bg-white rounded-2xl p-4 border-2 border-ochre-400/80 shadow-soft">
+        <!-- Tier 1: Icon + Info + Badge -->
+        <div class="flex items-start justify-between gap-3">
+          <div class="flex items-center gap-3 min-w-0 flex-1">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-ochre-500 to-ochre-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+              </svg>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <h3 class="font-extrabold text-sm text-ochre-900">وب‌سایت رسمی و فرم مشاوره</h3>
+                <span class="bg-ochre-100 text-ochre-800 border border-ochre-300 text-[10px] font-extrabold px-2 py-0.5 rounded-full whitespace-nowrap">
+                  ثبت نوبت آنلاین
+                </span>
+              </div>
+              <p class="text-xs text-cream-muted mt-1 truncate">
+                آدرس سایت: <span class="ltr-text font-bold text-ochre-700">maryamnamvar.com</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tier 2: Full-Width 2-Column Action Buttons -->
+        <div class="mt-3.5 pt-3 border-t border-cream-border grid grid-cols-2 gap-2">
+          <a href="https://maryamnamvar.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-ochre-500 hover:bg-ochre-600 text-white font-bold text-xs shadow-sm transition active:scale-95 whitespace-nowrap">
+            <span>ورود به سایت و فرم</span>
+            <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+          </a>
+          <button type="button" onclick="copyText('https://maryamnamvar.com/', 'آدرس وب‌سایت کپی شد')" class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-ochre-50 hover:bg-ochre-100 text-ochre-900 border border-ochre-200 font-bold text-xs transition active:scale-95 whitespace-nowrap">
+            <svg class="w-3.5 h-3.5 text-ochre-700 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+            </svg>
+            <span>کپی آدرس سایت</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- MAJOR CARD 2: SUPPORT PHONE NUMBER (Two-Tier Layout) -->
+      <div class="interactive-card bg-white rounded-2xl p-4 border border-cream-border shadow-soft">
+        <!-- Tier 1: Icon + Phone Info -->
+        <div class="flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3 min-w-0 flex-1">
+            <div class="w-12 h-12 rounded-2xl bg-ochre-100 border border-ochre-300/70 text-ochre-700 flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+            </div>
+            <div class="min-w-0 flex-1">
+              <h3 class="font-extrabold text-sm text-ochre-900">شماره پشتیبانی و هماهنگی نوبت</h3>
+              <div class="mt-1">
+                <span class="ltr-text text-sm sm:text-base font-black text-ochre-600 tracking-wider">+98 901 115 9893</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tier 2: Call & Copy Buttons -->
+        <div class="mt-3.5 pt-3 border-t border-cream-border grid grid-cols-2 gap-2">
+          <a href="tel:+989011159893" class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-ochre-500 hover:bg-ochre-600 text-white font-bold text-xs shadow-sm transition active:scale-95 whitespace-nowrap">
+            <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            <span>تماس مستقیم</span>
+          </a>
+          <button type="button" onclick="copyText('09011159893', 'شماره پشتیبانی (09011159893) کپی شد')" class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-ochre-50 hover:bg-ochre-100 text-ochre-900 border border-ochre-200 font-bold text-xs transition active:scale-95 whitespace-nowrap">
+            <svg class="w-3.5 h-3.5 text-ochre-700 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+            </svg>
+            <span>کپی شماره</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- MAJOR CARD 3: BALE MESSENGER (Two-Tier Layout for Link + ID Copy) -->
+      <div class="interactive-card bg-white rounded-2xl p-4 border border-cream-border shadow-soft">
+        <!-- Tier 1: Icon + Info + Green Badge -->
+        <div class="flex items-start justify-between gap-3">
+          <div class="flex items-center gap-3 min-w-0 flex-1">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.14 2 11.25c0 2.88 1.44 5.45 3.69 7.14-.14.88-.52 2.13-1.36 3.08-.21.24-.04.62.28.62 1.66 0 3.31-.68 4.44-1.31.94.24 1.93.37 2.95.37 5.52 0 10-4.14 10-9.25S17.52 2 12 2zm-1.15 12.42L7.7 11.27a.75.75 0 011.06-1.06l2.09 2.09 4.39-4.39a.75.75 0 011.06 1.06l-5.45 5.45z"/>
+              </svg>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <h3 class="font-extrabold text-sm text-ochre-900">پیام‌رسان بله</h3>
+                <span class="bg-emerald-100 text-emerald-800 border border-emerald-300/70 text-[10px] font-extrabold px-2 py-0.5 rounded-full whitespace-nowrap">
+                  داخلی / بدون فیلترشکن
+                </span>
+              </div>
+              <p class="text-xs text-cream-muted mt-1 truncate">
+                آیدی بله: <span class="ltr-text font-bold text-emerald-700">@maryamnamvar_psy</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tier 2: Open Bale & Copy ID -->
+        <div class="mt-3.5 pt-3 border-t border-cream-border grid grid-cols-2 gap-2">
+          <a href="https://ble.ir/join/35o2JayfFB" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition active:scale-95 whitespace-nowrap">
+            <span>ورود به کانال بله</span>
+            <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+          </a>
+          <button type="button" onclick="copyText('@maryamnamvar_psy', 'آیدی بله (@maryamnamvar_psy) کپی شد')" class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-ochre-50 hover:bg-ochre-100 text-ochre-900 border border-ochre-200 font-bold text-xs transition active:scale-95 whitespace-nowrap">
+            <svg class="w-3.5 h-3.5 text-ochre-700 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+            </svg>
+            <span>کپی آیدی بله</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- SIMPLE 1-CLICK CARD 4: TELEGRAM -->
+      <a href="https://t.me/maryamnamvarpsy" target="_blank" rel="noopener noreferrer" class="interactive-card flex items-center justify-between gap-3 bg-white rounded-2xl p-3.5 border border-cream-border shadow-soft">
+        <div class="flex items-center gap-3 min-w-0 flex-1">
+          <div class="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-200 text-sky-600 flex items-center justify-center shrink-0">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+            </svg>
+          </div>
+          <div class="min-w-0 flex-1">
+            <h3 class="font-extrabold text-sm text-ochre-900 truncate">کانال و ارتباط در تلگرام</h3>
+            <p class="text-xs text-cream-muted mt-0.5 truncate">
+              مشاهده مطالب و پیام • <span class="ltr-text font-bold text-ochre-700">@maryamnamvarpsy</span>
+            </p>
+          </div>
+        </div>
+        <div class="w-9 h-9 rounded-xl bg-ochre-50 border border-ochre-200/70 text-ochre-700 flex items-center justify-center shrink-0">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </div>
+      </a>
+
+      <!-- SIMPLE 1-CLICK CARD 5: WHATSAPP -->
+      <a href="https://wa.me/989011159893?text=%D8%B3%D9%84%D8%A7%D9%85%20%D8%AE%D8%A7%D9%86%D9%85%20%D9%86%D8%A7%D9%85%D9%88%D8%B1%D8%8C%20%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%AF%D8%B1%DB%8C%D8%A7%D9%81%D8%AA%20%D9%86%D9%88%D8%A8%D8%AA%20%D9%85%D8%B4%D8%A7%D9%88%D8%B1%D9%87%20%DA%A9%D9%88%D8%AF%DA%A9%20%D9%BE%DB%8C%D8%A7%D9%85%20%D9%85%DB%8C%E2%80%8C%D8%AF%D9%87%D9%85." target="_blank" rel="noopener noreferrer" class="interactive-card flex items-center justify-between gap-3 bg-white rounded-2xl p-3.5 border border-cream-border shadow-soft">
+        <div class="flex items-center gap-3 min-w-0 flex-1">
+          <div class="w-12 h-12 rounded-2xl bg-green-50 border border-green-200 text-green-600 flex items-center justify-center shrink-0">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.127.558 4.198 1.617 6.03L0 24l6.135-1.608A11.943 11.943 0 0 0 12.031 24c6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </div>
+          <div class="min-w-0 flex-1">
+            <h3 class="font-extrabold text-sm text-ochre-900 truncate">پیام در واتساپ پشتیبانی</h3>
+            <p class="text-xs text-cream-muted mt-0.5 truncate">
+              هماهنگی وقت مشاوره • <span class="ltr-text font-bold text-ochre-700">0901 115 9893</span>
+            </p>
+          </div>
+        </div>
+        <div class="w-9 h-9 rounded-xl bg-ochre-50 border border-ochre-200/70 text-ochre-700 flex items-center justify-center shrink-0">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </div>
+      </a>
+
+      <!-- SIMPLE 1-CLICK CARD 6: INSTAGRAM -->
+      <a href="https://instagram.com/maryam_namvarpsy" target="_blank" rel="noopener noreferrer" class="interactive-card flex items-center justify-between gap-3 bg-white rounded-2xl p-3.5 border border-cream-border shadow-soft">
+        <div class="flex items-center gap-3 min-w-0 flex-1">
+          <div class="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 text-rose-600 flex items-center justify-center shrink-0">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </div>
+          <div class="min-w-0 flex-1">
+            <h3 class="font-extrabold text-sm text-ochre-900 truncate">صفحه اینستاگرام</h3>
+            <p class="text-xs text-cream-muted mt-0.5 truncate">
+              آموزش‌های فرزندپروری • <span class="ltr-text font-bold text-ochre-700">@maryam_namvarpsy</span>
+            </p>
+          </div>
+        </div>
+        <div class="w-9 h-9 rounded-xl bg-ochre-50 border border-ochre-200/70 text-ochre-700 flex items-center justify-center shrink-0">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </div>
+      </a>
+
+    </section>
+
+    <!-- 5. WORKING HOURS CARD -->
+    <section class="px-4 sm:px-5 pb-5">
+      <div class="bg-[#F4EBE0] border border-cream-border rounded-2xl p-3.5 flex items-center justify-between gap-3">
+        <div class="flex items-center gap-3 min-w-0">
+          <div class="w-10 h-10 rounded-xl bg-white text-ochre-600 flex items-center justify-center shadow-sm shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div class="min-w-0">
+            <h3 class="text-xs font-extrabold text-ochre-900 truncate">ساعات پاسخگویی و هماهنگی</h3>
+            <p class="text-[11px] text-cream-muted mt-0.5 truncate">شنبه تا پنجشنبه • ثبت فرم در سایت (۲۴ ساعته)</p>
+          </div>
+        </div>
+        <span class="text-[10px] font-extrabold bg-white text-emerald-700 px-2.5 py-1 rounded-lg border border-emerald-200 shrink-0">
+          فعال
+        </span>
+      </div>
+    </section>
+
+    <!-- 6. FOOTER ATTRIBUTION -->
+    <footer class="bg-[#EDE2D2]/70 border-t border-cream-border px-4 py-3.5 text-center">
+      <p class="text-[11px] text-cream-muted font-medium">
+        تمامی حقوق برای <span class="font-extrabold text-ochre-900">مریم نامور (روانشناس کودک)</span> محفوظ است.
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- QR CODE MODAL -->
+  <div id="qr-modal" onclick="closeQrModal()" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 backdrop-blur-sm p-4 opacity-0 transition-opacity duration-300">
+    <div onclick="event.stopPropagation()" id="qr-modal-box" class="w-full max-w-[330px] bg-cream-card rounded-3xl p-5 border border-cream-border shadow-2xl text-center relative transform scale-95 transition-transform duration-300">
+      
+      <button type="button" onclick="closeQrModal()" aria-label="بستن مودال" class="absolute top-4 left-4 w-8 h-8 rounded-full bg-ochre-100 text-ochre-800 flex items-center justify-center hover:bg-ochre-200 transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <h3 class="text-base font-extrabold text-ochre-900 mt-1">اسکن کارت ویزیت هوشمند</h3>
+      <p class="text-xs text-cream-muted mt-1">مریم نامور | مشاور و روانشناس کودک</p>
+
+      <div class="my-4 p-3.5 bg-white rounded-2xl border border-cream-border inline-block shadow-sm">
+        <img id="qr-image" src="" alt="QR Code" class="w-44 h-44 mx-auto rounded-lg" onerror="this.src='https://placehold.co/200x200/FAF6F0/C59341?text=QR+Code'" />
+      </div>
+
+      <p class="text-[11px] text-cream-muted leading-relaxed">
+        با اسکن این بارکد مستقیماً وارد وب‌سایت رسمی (<span class="ltr-text font-bold text-ochre-800">maryamnamvar.com</span>) می‌شوید.
+      </p>
+
+      <button type="button" onclick="closeQrModal()" class="mt-4 w-full py-2.5 rounded-xl bg-ochre-500 hover:bg-ochre-600 text-white font-bold text-xs shadow-sm transition">
+        بستن پنجره
+      </button>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // 1. Toast Notification System
+    let toastTimeout;
+    function showToast(message) {
+      const toast = document.getElementById('toast-notification');
+      const msgEl = document.getElementById('toast-message');
+      msgEl.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2800);
+    }
+
+    // 2. Reliable Clipboard Copy
+    function copyText(text, successMessage) {
+      try {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-9999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        const successful = document.execCommand('copy');
+        document.body.removeChild(textArea);
+        if (successful) {
+          showToast(successMessage || 'در کلیپ‌بورد کپی شد');
+          return;
+        }
+      } catch (err) {}
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(successMessage || 'در کلیپ‌بورد کپی شد');
+        }).catch(() => {
+          showToast('خطا در کپی اطلاعات');
+        });
+      }
+    }
+
+    // 3. Web Share API + Auto Copy Fallback
+    function shareCard() {
+      const pageUrl = (window.location.href && window.location.href.startsWith('http'))
+        ? window.location.href
+        : 'https://maryamnamvar.com/';
+      copyText(pageUrl, 'لینک صفحه در کلیپ‌بورد کپی شد');
+
+      if (navigator.share) {
+        navigator.share({
+          title: 'مریم نامور | مشاور و روانشناس کودک (۵ تا ۱۲ سال)',
+          text: 'کارت ویزیت هوشمند و وب‌سایت رسمی مریم نامور - مشاور و روانشناس کودک (ش.ن: ۷۸۵۸۸)',
+          url: pageUrl
+        }).catch(() => {});
+      }
+    }
+
+    // 4. Dynamic vCard (.vcf) Generator
+    function downloadVCard() {
+      const vcardContent = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        'N:نامور;مریم;;;',
+        'FN:مریم نامور | روانشناس کودک',
+        'ORG:مشاور و روانشناس کودک (۵ تا ۱۲ سال)',
+        'TITLE:شماره نظام روانشناسی: ۷۸۵۸۸',
+        'TEL;TYPE=CELL,VOICE:+989011159893',
+        'URL;TYPE=WORK:https://maryamnamvar.com/',
+        'URL;TYPE=Instagram:https://instagram.com/maryam_namvarpsy',
+        'URL;TYPE=Telegram:https://t.me/maryamnamvarpsy',
+        'URL;TYPE=Bale:https://ble.ir/join/35o2JayfFB',
+        'NOTE:مشاوره تخصصی کودکان ۵ تا ۱۲ سال و والدین | ثبت فرم مشاوره در سایت: https://maryamnamvar.com/ | آیدی بله: @maryamnamvar_psy',
+        'END:VCARD'
+      ].join('\r\n');
+
+      const blob = new Blob([vcardContent], { type: 'text/vcard;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'Maryam-Namvar-Psychologist.vcf');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+
+      showToast('فایل مخاطب (vCard) آماده ذخیره در گوشی شد');
+    }
+
+    // 5. QR Code Modal
+    function openQrModal() {
+      const modal = document.getElementById('qr-modal');
+      const box = document.getElementById('qr-modal-box');
+      const qrImg = document.getElementById('qr-image');
+      const targetUrl = 'https://maryamnamvar.com/';
+      qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=8&color=2C221E&bgcolor=FFFFFF&data=${encodeURIComponent(targetUrl)}`;
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        box.classList.remove('scale-95');
+        box.classList.add('scale-100');
+      }, 15);
+    }
+
+    function closeQrModal() {
+      const modal = document.getElementById('qr-modal');
+      const box = document.getElementById('qr-modal-box');
+      modal.classList.add('opacity-0');
+      box.classList.remove('scale-100');
+      box.classList.add('scale-95');
+      setTimeout(() => {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+      }, 250);
+    }
+  </script>
+</body>
+</html>
